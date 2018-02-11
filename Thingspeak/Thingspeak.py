@@ -24,7 +24,7 @@ import logging
 
 THINGSPEAK_URL		= 'https://api.thingspeak.com/'
 
-class thingspeak(object):
+class Thingspeak(object):
 	def __init__(self, channel, apiKey, tsURL=THINGSPEAK_URL):
 		"""
 		Initalization "constructor" for the object.
