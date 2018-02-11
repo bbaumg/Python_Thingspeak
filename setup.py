@@ -7,4 +7,5 @@ setup(name='Python_Thingspeak',
 	author='bbaumg',
 	license='MIT',
 	packages=['Thingspeak'],
+	install_requires=['requests'],
 	zip_safe=False)
