@@ -136,6 +136,7 @@ class Thingspeak(object):
 			ts=self.tsRUL,
 		)
 		logging.debug("Options = " + str(options))
+		logging.debug("URL = " + str(url))
 		try:
 			results = requests.post(url, params=options)
 			if results.ok != True:
@@ -160,9 +161,14 @@ class Thingspeak(object):
 		"""returns the name of field when description is passed in"""
 		logging.info("Getting the field name " + str(name))
 		try:
-			fieldName = self.fields.keys()[self.fields.values().index(name)]
+			for key, value in self.fields.items():
+				if value == name:
+					fieldName = key
 			logging.info("The field name for " + str(name) + " is " + str(fieldName))
 			return fieldName
+		except Exception as e:
+			logging.error(e)
 		except:
 			logging.error(str(name)+ " Field Name was not found")
+			print(f"Unexpected {err=}, {type(err)=}")
 			return False
