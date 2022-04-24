@@ -161,11 +161,6 @@ class Thingspeak(object):
 		"""returns the name of field when description is passed in"""
 		logging.info("Getting the field name " + str(name))
 		try:
-<<<<<<< HEAD
-			#fieldName = self.fields.keys()[self.fields.values().index(name)]
-			#fieldName = next(v for k, v in self.fields.items() if v == name )
-=======
->>>>>>> 137218bd3bf05932d3559456b96a13fb3f74ab9a
 			for key, value in self.fields.items():
 				if value == name:
 					fieldName = key
@@ -176,8 +171,4 @@ class Thingspeak(object):
 		except:
 			logging.error(str(name)+ " Field Name was not found")
 			print(f"Unexpected {err=}, {type(err)=}")
-<<<<<<< HEAD
 			return False
-=======
-			return False
->>>>>>> 137218bd3bf05932d3559456b96a13fb3f74ab9a
