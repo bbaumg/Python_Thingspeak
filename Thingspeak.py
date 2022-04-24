@@ -71,8 +71,8 @@ class Thingspeak(object):
 		try:
 			results = requests.get(url, params=options)
 			if results.ok != True:
-				logging.error("The URL didn't return a 200")
-				return
+				logging.error("The URL didn't return a 200 check the URL, Channel ID, and API Key")
+				raise
 		except:
 			logging.error("Error calling the thingspeak URL")
 			return
@@ -151,7 +151,7 @@ class Thingspeak(object):
 	def clear_field_values(self):
 		"""Clear out any saved values in the fields within the object"""
 		logging.info("Clearing values in the field[] dictionary of the object")
-		logging.debug("Before = " + str(self.field))
+		logging.debug("Before = " + str(self.fields))
 		for key, value in self.fields.items():
 			self.field[str(key)] = None
 		logging.debug("After = " + str(self.field))
