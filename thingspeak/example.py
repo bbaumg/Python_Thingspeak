@@ -1,5 +1,5 @@
 import logging
-from Thingspeak import Thingspeak
+from thingspeak import thingspeak
 
 # packages needed:
 #   sudo apt install python3-pip python3-virtualevn
@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 THINGSPEAK_CHANNEL		= 00000
 THINGSPEAK_KEY			= '---KEY-HERE-----'
 
-channel = Thingspeak(channel=THINGSPEAK_CHANNEL, apiKey=THINGSPEAK_KEY)
+channel = thingspeak(channel=THINGSPEAK_CHANNEL, apiKey=THINGSPEAK_KEY)
 channel.field[channel.field_name(name='Field1')] = 100
 channel.post_update()
 
